@@ -1,0 +1,15 @@
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\bin\Debug\net6.0\CourseApp.exe
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\bin\Debug\net6.0\CourseApp.deps.json
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\bin\Debug\net6.0\CourseApp.runtimeconfig.json
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\bin\Debug\net6.0\CourseApp.dll
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\bin\Debug\net6.0\CourseApp.pdb
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.AssemblyInfoInputs.cache
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.AssemblyInfo.cs
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.sourcelink.json
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.dll
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\refint\CourseApp.dll
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.pdb
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\CourseApp.genruntimeconfig.cache
+C:\Users\Hp\Desktop\C#\CourseApp\CourseApp\obj\Debug\net6.0\ref\CourseApp.dll

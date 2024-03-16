@@ -64,12 +64,12 @@ namespace Service.Services
             return group;
         }
 
-        public Group SearchForByName(string groupName)
+        public void Update(Group data)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Group data)
+        public List<Group> SearchForByName(string str)
         {
             throw new NotImplementedException();
         }
