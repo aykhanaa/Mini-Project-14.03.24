@@ -11,7 +11,6 @@ namespace Repository.Repositories.Interfaces
     {
         List<Group> GetAllByTeacher(string teacherName);
         List<Group> GetAllByRoom(string roomName);
-        Group GetByName(string groupName);
         
     }
 }

@@ -35,15 +35,5 @@ namespace Repository.Repositories
         {
             return AppDbContext<T>.datas.FirstOrDefault(m => m.Id == id);
          }
-
-        public void Edit(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Upadte(T entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
