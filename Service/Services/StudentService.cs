@@ -3,11 +3,6 @@ using Repository.Repositories.Interfaces;
 using Service.Helpers.Constants;
 using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {

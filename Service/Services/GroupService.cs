@@ -47,9 +47,9 @@ namespace Service.Services
             return response;
         }
 
-        public List<Group> GetAllByTeacher(string roomName)
+        public List<Group> GetAllByTeacher(string teacherName)
         {
-            var response = _groupRepo.GetAllByRoom(roomName);
+            var response = _groupRepo.GetAllByTeacher(teacherName);
             return response;
         }
 
@@ -71,7 +71,8 @@ namespace Service.Services
 
         public List<Group> SearchForByName(string str)
         {
-            throw new NotImplementedException();
+            var response = _groupRepo.GetAllWithExpression(m=>m.Name==str);
+            return response;
         }
     }
 }
