@@ -15,15 +15,18 @@ namespace CourseApp.Controllers
     internal class GroupContoller
     {
         private readonly IGroupService _groupService;
+        private readonly IStudentService _studentService;
+
 
         public GroupContoller()
         {
             _groupService = new GroupService();
+            _studentService = new StudentService();
         }
 
         public void Create()
         {
-        Name: ConsoleColor.Cyan.WriteConsole("Add group name:");
+        Name: ConsoleColor.Cyan.WriteConsole("Add  group name:");
             string name = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -32,7 +35,7 @@ namespace CourseApp.Controllers
             }
             var result = _groupService.SearchForByName(name);
 
-            if (result.Count != 0)
+            if (result!=null)
             {
                 ConsoleColor.Red.WriteConsole("This group is exsist,please add  new name");
                 goto Name;
@@ -48,6 +51,11 @@ namespace CourseApp.Controllers
             if (!Regex.IsMatch(teacherName, @"^[\p{L}\p{M}' \.\-]+$"))
             {
                 ConsoleColor.Red.WriteConsole("Format is wrong");
+                goto Teacher;
+            }
+            if (teacherName.Length < 3)
+            {
+                ConsoleColor.Red.WriteConsole("Teacher name is less 3 letter");
                 goto Teacher;
             }
 
@@ -100,7 +108,7 @@ namespace CourseApp.Controllers
                 catch (Exception ex)
                 {
                     ConsoleColor.Red.WriteConsole(ex.Message);
-                    goto Id;
+                  
                 }
             }
             else
@@ -154,27 +162,20 @@ namespace CourseApp.Controllers
                 ConsoleColor.Red.WriteConsole("Input can't be empty");
                 goto Room;
             }
-            try
-            {
-                List<Group> responce = _groupService.GetAllByRoom(room);
-                if (responce.Count == 0)
-                {
-                    ConsoleColor.Red.WriteConsole("Room not found");
-
-                    foreach (var item in responce)
-                    {
-                        string data = $"Id:{item.Id},Group name:{item.Name},Group room: {item.Room},Group teacher:{item.Teacher}";
-                        Console.WriteLine(data);
-                    }
-                }
-            }
-            catch (Exception)
+            var response = _groupService.GetAllWithExpression(m => m.Room.ToLower() == room.ToLower().Trim());
+            if (response.Count == 0)
             {
                 ConsoleColor.Red.WriteConsole("Room not found");
-                goto Room;
-
+                return;
             }
+            foreach (var item in response)
+            {
+                string data = $"Id:{item.Id},Group name:{item.Name},Group room: {item.Room},Group teacher:{item.Teacher}";
+                Console.WriteLine(data);
+            }
+
         }
+
         public void GetAllByTeacher()
         {
         Teacher: ConsoleColor.Cyan.WriteConsole("Add teacher:");
@@ -184,27 +185,22 @@ namespace CourseApp.Controllers
                 ConsoleColor.Red.WriteConsole("Input can't be empty");
                 goto Teacher;
             }
-            try
+            var response = _groupService.GetAllWithExpression(m => m.Teacher.ToLower() == teacherName.ToLower().Trim());
+            if (response.Count == 0)
             {
-                List<Group> responce = _groupService.GetAllByTeacher(teacherName);
-                if (responce.Count == 0)
-                {
-                    ConsoleColor.Red.WriteConsole("Teachername not found");
-
-                    foreach (var item in responce)
-                    {
-                        string data = $"Id:{item.Id},Group name:{item.Name},Group room: {item.Room},Group teacher:{item.Teacher}";
-                        Console.WriteLine(data);
-                    }
-                }
+                ConsoleColor.Red.WriteConsole("Group not found");
+                return;
             }
-            catch (Exception)
+            foreach (var item in response)
             {
-                ConsoleColor.Red.WriteConsole("Teachername not found");
-                goto Teacher;
-
+                string data = $"Id:{item.Id},Group name:{item.Name},Group room: {item.Room},Group teacher:{item.Teacher}";
+                Console.WriteLine(data);
             }
+
+
+
         }
+
 
         public void SearchByName()
         {
@@ -235,6 +231,7 @@ namespace CourseApp.Controllers
                 goto Name;
 
             }
+
         }
     }
 }

@@ -6,11 +6,11 @@ using Service.Services.Interfaces;
 
 namespace Service.Services
 {
-    internal class StudentService : IStudentService
+    public class StudentService : IStudentService
     {
         private readonly IStudentRepository _studentRepo;
         private int count = 1;
-      
+  
         public void Create(Student data)
         {
             if (data == null) throw new ArgumentNullException();
@@ -30,6 +30,16 @@ namespace Service.Services
         public List<Student> GetAll()
         {
            return _studentRepo.GetAll();
+        }
+
+        public List<Student> GetAllByAge(int? age)
+        {
+            return _studentRepo.GetByAge(age);
+        }
+
+        public List<Student> GetAllByGroup(int? id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Student> GetByAge(int age)

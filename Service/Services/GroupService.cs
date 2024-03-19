@@ -69,10 +69,14 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public List<Group> SearchForByName(string str)
+        public Group SearchForByName(string str)
         {
-            var response = _groupRepo.GetAllWithExpression(m=>m.Name==str);
+            var response = _groupRepo.SearchByName(str);
             return response;
+        }
+        public List<Group>GetAllWithExpression(Func<Group,bool> predicate)
+        {
+            return _groupRepo.GetAllWithExpression(predicate);
         }
     }
 }

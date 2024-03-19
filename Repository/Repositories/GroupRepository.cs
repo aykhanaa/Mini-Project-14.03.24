@@ -15,6 +15,15 @@ namespace Repository.Repositories
         {
             return AppDbContext<Group>.datas.Where(m=>m.Teacher == teacherName).ToList();
         }
+        public List<Group> GetByNameOrSurname(string text)
+        {
+            return AppDbContext<Group>.datas.Where(m => m.Name == text).ToList();
+        }
+
+        public Group SearchByName(string name)
+        {
+            return AppDbContext<Group>.datas.FirstOrDefault(m => m.Name == name);
+        }
     }
 }
  
